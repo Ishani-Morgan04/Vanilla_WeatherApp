@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Parcel Sandbox</title>
     <meta charset="UTF-8" />
     <link href="src/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,6 +24,7 @@
 
   <body>
     <div class="container">
+    <div class="weather-app"> 
       <h1>
         WEATHER LENS
         <hr />
@@ -46,9 +46,7 @@
     type="submit" 
     value="Search" 
     class="form-control btn-primary"/>
-    
-    <button class="current-button" id="current-button"> Current City </button>
-</div>   
+  </div>   
     </div>
 <br />
 
@@ -62,12 +60,13 @@
       </span>
     </div>
   <br />
-    <img class="today" 
- <br />
+    <img class="today">
+<br />
  <div class="temp-description" >
    <strong></strong>
    <br />
-  <span class="current-temperature" id="currentTemperature"><strong> 25 </strong></span>
+   <img>
+   <span class="current-temperature" id="currentTemperature"><strong> 25 </strong></span>
    <br /> 
    <span class="unitsDegree">
     <a href="#" id="celciusTemp"> °C </a> 
@@ -75,68 +74,14 @@
     <a href="#" id="fahrenheitTemp"> °F </a>
   </span>  
 <br />
-<br />
-  <span class="quote">"I've got a sunshine on a cloudy day".
-  </span>
-<br /> 
-<br />
-</div>
-<br />
-<div class="5-days-forecast">
-  <div class="row">
-  <div class="col-sm-2">
-  <div class="card">   
-  <div class="card-body">
-  <span class="forecast"><strong>SUN</strong><br>⛈<br><strong>Stormy</strong><br>15°C</span>  
-  </div>
-</div>
-</div>
-
-   <div class="col-sm-2">
-   <div class="card">
-   <div class="card-body">
-    <span class="forecast"><strong>MON</strong><br>☀️<br><strong>Sunny</strong><br>40°C</span> 
-   </div>
-</div>
-</div>
- 
-    <div class="col-sm-2">
-    <div class="card">
-    <div class="card-body">
-      <span class="forecast"><strong>TUE</strong><br>💨<br><strong>Windy</strong><br>18°C</span>     
-    </div>
  </div>
- </div>
-      
-    <div class="col-sm-2">
-    <div class="card">       
-    <div class="card-body">
-      <span class="forecast"><strong>WED</strong><br>🌧<br><strong>Rainy</strong><br>15°C</span> 
-    </div>
-  </div>
-  </div>
-            
-    <div class="col-sm-2">
-    <div class="card">
-    <div class="card-body">
-      <span class="forecast"><strong>THU</strong><br>⛅️<br><strong>Cloudy</strong><br>20°C</span> 
-    </div>
-  </div>
-  </div>
-</div>  
-</div> 
-<br /> 
-<br /> 
-<p>
-<a
-
-target="_blank"
-><strong>Open source code</a>
-by Ishani Morgan</strong>
+<br />
+<a href="https://github.com/Ishani-Morgan04/Vanilla_WeatherApp.git">Open source code</a>
+by Ishani Morgan
 </p>
 <br />  
 <br />             
-    <script src="src/index.js"></script>
+    <script src="src/app.js"></script>
    
 
   </body>
