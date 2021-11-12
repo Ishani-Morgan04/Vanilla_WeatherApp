@@ -2,7 +2,6 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <link href="src/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,6 +14,7 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="src/styles.css" />
     <script src="https://kit.fontawesome.com/d4d804a5d0.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
@@ -24,11 +24,11 @@
 
   <body>
     <div class="container">
-    <div class="weather-app"> 
       <h1>
         WEATHER LENS
-        <hr />
       </h1>
+      <div class="weather-app-wrapper">
+      <div class="weather-app"> 
       <form class="search-form" id="cityForm">
           <div class="row">
             <div class="col-10">        
@@ -48,6 +48,7 @@
     class="form-control btn-primary"/>
   </div>   
     </div>
+      </form>
 <br />
 
   <div class="current-forecast" >
@@ -60,27 +61,37 @@
       </span>
     </div>
   <br />
-    <img class="today">
+    <div class="clearfix weather-temperature">
+    <img src = ""
+    class="float-center"/>
+    </div>   
 <br />
- <div class="temp-description" >
-   <strong></strong>
-   <br />
-   <img>
-   <span class="current-temperature" id="currentTemperature"><strong> 25 </strong></span>
-   <br /> 
+ <div class="temp-description float-center" >
+   <span class="current-temperature" id="currentTemperature"><strong> 25 </strong></span>    
    <span class="unitsDegree">
-    <a href="#" id="celciusTemp"> °C </a> 
-      | 
-    <a href="#" id="fahrenheitTemp"> °F </a>
-  </span>  
-<br />
+    <a href="#" id="celciusTemp"><small> °C | </small></a>
+    <a href="#" id="fahrenheitTemp"><small> °F </small></a></span> 
+  <br />  
+   <span class="weather-status" > Cloudy </span> 
+  </div>
+  <div class="temp-elements"> 
+    <ul>
+    <li class="wind-speed">Wind Speed<br>2 km/h</li>
+    <li class="humidity">Humidity<br>73%</li>
+    </ul>
+  </div>
  </div>
+ </div>
+</div>
+      </div>
 <br />
+<p class="github">
 <a href="https://github.com/Ishani-Morgan04/Vanilla_WeatherApp.git">Open source code</a>
 by Ishani Morgan
 </p>
+</div>
 <br />  
-<br />             
+<br />            
     <script src="src/app.js"></script>
    
 
