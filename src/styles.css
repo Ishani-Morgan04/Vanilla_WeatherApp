@@ -80,8 +80,8 @@ h1 {
   margin-bottom: -70px;
 }
 
-.temp-description strong {
-  font-size: 48px;
+.current-temperature {
+  font-size: 64px;
   text-align: center;
   color: white;
   word-spacing: -15px;
@@ -100,7 +100,7 @@ h1 {
   text-decoration: none;
 }
 
-.weather-status {
+.description {
   list-style: none;
   font-size: 30px;
   text-align: center;
@@ -124,7 +124,7 @@ h1 {
 
 .humidity {
   text-align: right;
-  padding-right: 200px;
+  padding-right: 180px;
   list-style: none;
   padding-bottom: 0px;
 }
