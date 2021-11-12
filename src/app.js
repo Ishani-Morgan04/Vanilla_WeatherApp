@@ -1,5 +1,3 @@
-//Feature 1
-
 let now = new Date();
 
 let days = [
@@ -49,6 +47,14 @@ function displayWeatherCondition(response) {
   //console.log(response.data.name);
   document.querySelector("#currentTemperature").innerHTML = Math.round(
     response.data.main.temp
+  );
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].description;
+  //console.log(response.data.weather[0].description);
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  //console.log (response.data.main.humidity);
+  document.querySelector("#windSpeed").innerHTML = Math.round(
+    response.data.wind.speed
   );
 }
 function search(nowCity) {
