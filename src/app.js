@@ -1,3 +1,7 @@
+function formatDate(timestamp) {
+  //calculate the date
+  return "FRIDAY, 22 OCTOBER 2021";
+}
 let now = new Date();
 
 let days = [
@@ -28,18 +32,16 @@ let months = [
 let day = days[now.getDay()];
 let month = months[now.getMonth()];
 let date = now.getDate();
-let hours = now.getHours();
 let minutes = now.getMinutes();
+let hours = now.getHours();
+hours = hours % 12;
+hours = hours ? hours : 12; // the hour '0' should be '12'
+let ampm = hours >= 12 ? "PM" : "AM";
+let strTime = hours + ":" + minutes + ampm;
 let year = now.getFullYear();
 
-if (hours < 10) {
-  hours = "0" + hours;
-}
-if (minutes < 10) {
-  minutes = "0" + minutes;
-}
-
-//WEEK 5 HOMEWORK
+hours = (hours < 10 ? "0" : "") + hours;
+minutes = (minutes < 10 ? "0" : "") + minutes;
 
 function displayWeatherCondition(response) {
   //console.log(response.data);
@@ -56,6 +58,8 @@ function displayWeatherCondition(response) {
   document.querySelector("#windSpeed").innerHTML = Math.round(
     response.data.wind.speed
   );
+  document.querySelector("#date").innerHTML = response.data.dt * 1000;
+  //console log (response.data.dt * 1000);
 }
 function search(nowCity) {
   let apiKey = "9fff992f31953220b9b904c14ec2ac31";
@@ -96,10 +100,13 @@ let fahrenheit = document.querySelector("#fahrenheitTemp");
 fahrenheit.addEventListener("click", updateFahrenheit);
 
 let currentDate = document.querySelector("#currentDate");
-currentDate.innerHTML = `${day}, ${date} ${month} ${year} <br> ${hours}:${minutes}`;
+currentDate.innerHTML = `${day}, ${date} ${month} ${year} <br> ${strTime}`;
 
 let searchForm = document.querySelector("#cityForm");
 searchForm.addEventListener("submit", handleSubmit);
+
+// Default City
+search("Kuala Lumpur");
 
 let currentCityButton = document.querySelector("#current-button");
 currentCityButton.addEventListener("click", getCurrentPosition);
