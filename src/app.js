@@ -1,7 +1,3 @@
-function formatDate(timestamp) {
-  //calculate the date
-  return "FRIDAY, 22 OCTOBER 2021";
-}
 let now = new Date();
 
 let days = [
@@ -46,6 +42,14 @@ if (minutes < 10) {
   minutes = "0" + minutes;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayWeatherCondition(response) {
   celciusTemperature = response.data.main.temp;
   //console.log(response.data);
@@ -69,9 +73,60 @@ function displayWeatherCondition(response) {
     response.data.wind.speed
   );
   //console.log (response.data.wind.speed);
-  document.querySelector("#now").innerHTML = response.data.dt * 1000;
-  //console.log (response.data.dt * 1000);
+
+  getForecast(response.data.coord);
 }
+
+//Forecast
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index !== 0 && index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+      <div class="col-2">
+        <div class="card">
+          <div class="card-body">
+            <div class="weather-forecast-date">
+              <strong>${formatDay(forecastDay.dt)}</strong></div>
+            <img
+              src="https://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png" alt=""
+              id="forecast-icon"
+            />
+            <div class="weather-forecast-temperatures-Max">${Math.round(
+              forecastDay.temp.max
+            )}°C</div>
+            <div class="weather-forecast-description">
+              <strong>${forecastDay.weather[0].description}</strong>
+            </div>
+            
+        </div>
+      </div>
+    </div>
+  `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  //console.log (response.data.daily);
+}
+
+function getForecast(coordinates) {
+  //console.log(coordinates);
+  let apiKey = "9fff992f31953220b9b904c14ec2ac31";
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${apiKey}`;
+  console.log(apiURL);
+  axios.get(apiURL).then(displayForecast);
+}
+
 function search(nowCity) {
   let apiKey = "9fff992f31953220b9b904c14ec2ac31";
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${nowCity}&units=metric&appid=${apiKey}`;
@@ -90,6 +145,7 @@ function searchLocation(position) {
 
   axios.get(apiURL).then(displayWeatherCondition);
 }
+
 function getCurrentPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
@@ -130,6 +186,3 @@ searchForm.addEventListener("submit", handleSubmit);
 
 // Default City
 search("Kuala Lumpur");
-
-let currentCityButton = document.querySelector("#current-button");
-currentCityButton.addEventListener("click", getCurrentPosition);
