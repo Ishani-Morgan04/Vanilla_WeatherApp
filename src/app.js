@@ -1,3 +1,4 @@
+// Day, Date, Year & Time
 let now = new Date();
 
 let days = [
@@ -50,34 +51,34 @@ function formatDay(timestamp) {
   return days[day];
 }
 
+// Current Weather Condition (API)
 function displayWeatherCondition(response) {
   celciusTemperature = response.data.main.temp;
-  //console.log(response.data);
+
   document.querySelector("#nowCity").innerHTML = response.data.name;
-  //console.log(response.data.name);
   document.querySelector("#currentTemperature").innerHTML =
     Math.round(celciusTemperature);
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
-  //console.log(response.data.weather[0].description);
+
+  //Weather Icon (API)
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
-  //
+
+  // Weather Element
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  //console.log (response.data.main.humidity);
   document.querySelector("#windSpeed").innerHTML = Math.round(
     response.data.wind.speed
   );
-  //console.log (response.data.wind.speed);
 
+  //Forecast
   getForecast(response.data.coord);
 }
 
-//Forecast
 function displayForecast(response) {
   let forecast = response.data.daily;
 
@@ -104,7 +105,8 @@ function displayForecast(response) {
               forecastDay.temp.max
             )}°C</div>
             <div class="weather-forecast-description">
-              <strong>${forecastDay.weather[0].description}</strong>
+              ${forecastDay.weather[0].description}
+
             </div>
             
         </div>
@@ -127,6 +129,7 @@ function getForecast(coordinates) {
   axios.get(apiURL).then(displayForecast);
 }
 
+// City, Geolocation (API)
 function search(nowCity) {
   let apiKey = "9fff992f31953220b9b904c14ec2ac31";
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${nowCity}&units=metric&appid=${apiKey}`;
@@ -150,6 +153,8 @@ function getCurrentPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
+
+//Temperature & Unit Conversion
 function updateCelcius(event) {
   event.preventDefault();
   let unitsDegree = document.querySelector("#currentTemperature");
