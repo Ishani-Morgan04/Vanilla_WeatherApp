@@ -137,8 +137,8 @@ img {
 }
 
 .card {
-  max-width: 300px;
-  max-height: 200px;
+  max-width: 400px;
+  max-height: 400px;
   border-radius: 10px;
   text-align: center;
   color: rgb(4, 4, 117);
@@ -146,8 +146,6 @@ img {
   margin-top: 20px;
   margin-bottom: 20px;
   font-size: 14px;
-  border-width: 3px;
-  border-color: rgb(0, 20, 68);
 }
 
 .github {
