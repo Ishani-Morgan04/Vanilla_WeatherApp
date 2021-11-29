@@ -1,6 +1,6 @@
 body {
   margin: 0 auto;
-  background: radial-gradient(#0072b6, #050141);
+  background: url("https://images.wallpapersden.com/image/download/lightning-at-night-hd_bGlpamiUmZqaraWkpJRnamtlrWZpaWU.jpg");
   background-size: cover;
 }
 
@@ -34,8 +34,8 @@ img {
 
 .search-form {
   margin-top: -25px;
-  margin-left: 150px;
-  margin-right: 150px;
+  margin-left: 120px;
+  margin-right: 120px;
   outline-color: black;
 }
 
@@ -116,14 +116,14 @@ img {
 
 .wind-speed {
   float: left;
-  padding-left: 140px;
+  padding-left: 100px;
   display: inline;
   list-style: none;
 }
 
 .humidity {
   float: right;
-  padding-right: 170px;
+  padding-right: 145px;
   list-style: none;
 }
 
@@ -138,14 +138,15 @@ img {
 }
 
 .card {
-  max-width: 200px;
-  max-height: 400px;
-  border-radius: 5px;
+  max-width: 300px;
+  max-height: 200px;
+  border-radius: 10px;
   text-align: center;
   color: rgb(4, 4, 117);
   background: radial-gradient(#3fdbf0, #9198e5);
   margin-top: 20px;
   margin-bottom: 20px;
+  font-size: 14px;
 }
 
 .github {
@@ -153,5 +154,4 @@ img {
   font-size: 12px;
   text-align: center;
   color: white;
-  margin-bottom: -20px;
 }
