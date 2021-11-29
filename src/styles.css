@@ -1,8 +1,6 @@
 body {
   margin: 0 auto;
-  background-image: url("https://images.wallpapersden.com/image/download/lightning-at-night-hd_bGlpamiUmZqaraWkpJRnamtlrWZpaWU.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: radial-gradient(#0072b6, #050141);
 }
 
 h1 {
@@ -148,6 +146,8 @@ img {
   margin-top: 20px;
   margin-bottom: 20px;
   font-size: 14px;
+  border-width: 3px;
+  border-color: rgb(0, 20, 68);
 }
 
 .github {
